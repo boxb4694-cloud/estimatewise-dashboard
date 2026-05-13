@@ -1,0 +1,6 @@
+{
+  "buildCommand": "echo 'static deploy — no build needed'",
+  "outputDirectory": "static",
+  "framework": null,
+  "cleanUrls": true
+}
