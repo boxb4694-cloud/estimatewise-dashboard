@@ -2,25 +2,22 @@ import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Estimato — Project Estimation Dashboard" },
+      { name: "description", content: "Beautiful SaaS-style project estimation tool. Calculate hours, cost, and timeline instantly." },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
+// The full app is a single-file vanilla HTML/Tailwind/JS bundle in /public/estimator.html.
+// We render it full-screen via an iframe so the deployed preview shows the dashboard.
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <iframe
+      src="/estimator.html"
+      title="Estimato"
+      style={{ position: "fixed", inset: 0, width: "100%", height: "100%", border: 0 }}
+    />
+  );
 }
